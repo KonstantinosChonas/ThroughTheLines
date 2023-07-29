@@ -50,7 +50,7 @@ public class LineSpawnScript : MonoBehaviour
         LineRenderer child2 = parent.transform.GetChild(1).GetComponent<LineRenderer>();
         BoxCollider2D boxCollider1 = parent.transform.GetChild(0).GetComponent<BoxCollider2D>();//right line box collider
         BoxCollider2D boxCollider2 = parent.transform.GetChild(1).GetComponent<BoxCollider2D>();//left line box collider
-        //BoxCollider2D boxCollider3 = parent.transform.GetChild(2).GetComponent<BoxCollider2D>();//middle box collider
+        BoxCollider2D boxCollider3 = parent.transform.GetChild(2).GetComponent<BoxCollider2D>();//middle box collider
 
         //we need to fix the position of the children
         Vector3 start1 = new Vector3(200, -35, 1), end1 = new Vector3(gap + widthOffset, -35, 1);
@@ -64,9 +64,9 @@ public class LineSpawnScript : MonoBehaviour
         boxCollider2.transform.Translate(BoxColliderOffset);// Move the line's box collider
 
 
-        //boxCollider3.size = new Vector2(2 * widthOffset, 0.2f); //set the size of the middle
+        boxCollider3.size = new Vector2(2 * widthOffset - 2.5f, 0.01f); //set the size of the middle
 
-        //boxCollider3.transform.Translate(BoxColliderOffset);// Move the middle box collider
+        boxCollider3.transform.Translate(BoxColliderOffset);// Move the middle box collider
 
     }
 }
