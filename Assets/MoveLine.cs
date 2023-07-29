@@ -19,9 +19,9 @@ public class MoveLine : MonoBehaviour
     {
 
         Vector3 moveAmount = Vector3.up * verticalSpeed * Time.deltaTime;
+        Vector2 moveMiddle = Vector2.up * verticalSpeed * Time.deltaTime;
 
 
-        
         Vector3[] linePositions = new Vector3[lineRenderer.positionCount];        //
                                                                                     // 
         for (int i = 0; i < linePositions.Length; i++)                                //
@@ -36,7 +36,11 @@ public class MoveLine : MonoBehaviour
 
         // Move the entire GameObject containing both the Line Renderer and the Box Collider 2D
         transform.Translate(moveAmount);
+        BoxCollider2D middleBoxCollider = transform.GetChild(2).GetComponent<BoxCollider2D>();//middle box collider
 
+        //middleBoxCollider.offset = moveMiddle;
+        //middleBoxCollider.transform.Translate(moveAmount);
+        middleBoxCollider.transform.position= middleBoxCollider.transform.position + moveAmount;
         if (transform.position.y > deadZone) Destroy(gameObject);
     }
 }

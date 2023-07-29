@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Line
   - Ball
+  - Scorer
   layers:
   - Default
   - TransparentFX
